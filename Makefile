@@ -2,6 +2,7 @@
 SERVER_NAME = jgc-db
 SERVER_VERSION = 0.1
 CONTAINER_NAME = JGC-DB
+DOCKER_NETWORK = jgc-net
 PORT = 3306
 
 # 콘솔 색 관련 세팅입니다.
@@ -26,6 +27,7 @@ run-test:
 	@docker run \
 		--platform linux/x86_64 \
 		--name $(CONTAINER_NAME) \
+		--network $(DOCKER_NETWORK) \
 		-d \
 		--restart always \
 		-e MYSQL_ROOT_PASSWORD=dbpassjgc \
